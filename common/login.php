@@ -70,11 +70,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 else{
 
-    if(@$_SESSION['id']){
+    if(@$_SESSION['role'] == "USER"){
 
-          header('Location: http://localhost/test/user/index.php');
+          header('Location: http://localhost/test/user/home.php');
       
           }
+    elseif(@$_SESSION['role'] == "TEACHER"){
+
+          header('Location: http://localhost/test/teacher/home.php');
+      
+          }
+    elseif(@$_SESSION['role'] == "STUDENT"){
+
+         header('Location: http://localhost/test/student/home.php');
+
+      }           
     elseif(@$_SESSION['showMsg']) {
 
             echo "<div class='mt-3 alert alert-success alert-dismissible fade show' id='alert' role='alert'>
@@ -113,6 +123,6 @@ else{
     </form>
 <?php
 
-include('D:\xampp\htdocs\test\common\footer.php');
+include('C:\xampp\htdocs\test\common\footer.php');
 
 ?>
