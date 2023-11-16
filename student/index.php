@@ -1,5 +1,5 @@
     <?php
-    include('D:\xampp\htdocs\test\common\header.php');
+    include('C:\xampp\htdocs\test\common\header.php');
     ?>
 
     
@@ -33,7 +33,7 @@
         </tr>
         <?php
             // Fetching users from the database and displaying them in the table
-            include 'D:\xampp\htdocs\test\common\config.php'; // This file contains the database connection settings
+            include 'C:\xampp\htdocs\test\common\config.php'; // This file contains the database connection settings
             $limit = 4 ;
              
             if (@$_GET['page']) {
@@ -86,6 +86,6 @@
                  echo "</ul>";
             }
 
-    include('D:\xampp\htdocs\test\common\footer.php');
+    include('C:\xampp\htdocs\test\common\footer.php');
 
     ?>

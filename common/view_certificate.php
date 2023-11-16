@@ -49,7 +49,7 @@ $html =  '<!DOCTYPE html>
 </head>
 <body>';
 
-include 'D:\xampp\htdocs\test\common\config.php';
+include 'C:\xampp\htdocs\test\common\config.php';
 session_start();
 
 $certificate_sql = "SELECT * FROM certificate WHERE certificate_id=".$_GET['certificate_id'];

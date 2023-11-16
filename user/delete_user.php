@@ -1,6 +1,6 @@
 <?php
-    include 'D:\xampp\htdocs\test\common\config.php';
-    include 'D:\xampp\htdocs\test\common\header.php';
+    include 'C:\xampp\htdocs\test\common\config.php';
+    include 'C:\xampp\htdocs\test\common\header.php';
     include('nav.php');
     if (isset($_GET['id']) || isset($_GET['name'])) {
         if (isset($_GET['id']) && $_GET['id'] !== "") {
@@ -38,5 +38,5 @@
 
 <?php
     }        
-    include ('D:\xampp\htdocs\test\common\footer.php');
+    include ('C:\xampp\htdocs\test\common\footer.php');
 ?>

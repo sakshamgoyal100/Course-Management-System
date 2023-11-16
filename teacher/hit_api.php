@@ -1,6 +1,6 @@
 <?php
 
-include('D:\xampp\htdocs\test\common\config.php');
+include('C:\xampp\htdocs\test\common\config.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $request_type = $_POST['request'];
