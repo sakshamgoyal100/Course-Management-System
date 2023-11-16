@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2023 at 04:52 PM
+-- Generation Time: Sep 08, 2023 at 04:31 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.0.32
 
@@ -30,10 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `certificate` (
   `certificate_id` int(11) NOT NULL,
-  `courseId` int(5) NOT NULL,
-  `studentId` int(11) NOT NULL,
   `studentName` varchar(20) NOT NULL,
-  `studentEmail` varchar(50) NOT NULL,
   `courseName` varchar(20) NOT NULL,
   `grade` varchar(5) NOT NULL,
   `courseDuration` int(11) NOT NULL COMMENT 'in months',
@@ -44,11 +41,8 @@ CREATE TABLE `certificate` (
 -- Dumping data for table `certificate`
 --
 
-INSERT INTO `certificate` (`certificate_id`, `courseId`, `studentId`, `studentName`, `studentEmail`, `courseName`, `grade`, `courseDuration`, `teacherName`) VALUES
-(2, 20, 1, 'saksham', 'sak@example.com', 'Course 5', 'A1', 7, 'kshtiz'),
-(4, 20, 3, 'fdfdd', 'nis@gmail.com', 'Course 5', 'B1', 7, 'kshtiz'),
-(5, 20, 2, 'akshit', 'akshit@example.com', 'Course 5', 'A1', 7, 'kshtiz'),
-(6, 21, 2, 'akshit', 'akshit@example.com', 'Course 6', 'A2', 3, 'kshtiz');
+INSERT INTO `certificate` (`certificate_id`, `studentName`, `courseName`, `grade`, `courseDuration`, `teacherName`) VALUES
+(1, 'akshit', 'Course 6', 'A1', 3, 'kshtiz');
 
 -- --------------------------------------------------------
 
@@ -84,27 +78,6 @@ INSERT INTO `course` (`courseId`, `courseName`, `courseDuration`, `coursePrice`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `forgotpassword`
---
-
-CREATE TABLE `forgotpassword` (
-  `id` int(11) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `otp` int(11) NOT NULL,
-  `expirationTime` datetime DEFAULT NULL,
-  `createdOn` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `forgotpassword`
---
-
-INSERT INTO `forgotpassword` (`id`, `email`, `otp`, `expirationTime`, `createdOn`) VALUES
-(1, 'sakshamgoyal100@gmail.com', 8005, '2023-09-13 19:55:55', '2023-09-13 19:45:55');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `student`
 --
 
@@ -112,7 +85,7 @@ CREATE TABLE `student` (
   `id` int(5) NOT NULL,
   `name` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
-  `email` varchar(50) NOT NULL,
+  `email` varchar(20) NOT NULL,
   `mobile` int(10) DEFAULT NULL,
   `class` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -122,11 +95,10 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`id`, `name`, `password`, `email`, `mobile`, `class`) VALUES
-(1, 'saksham', 'sak@example', 'sakshamgoyal100@gmai', NULL, 'value'),
+(1, 'saksham', 'sak@example', 'sak@example.com', NULL, 'value'),
 (2, 'akshit', 'akshit', 'akshit@example.com', 2147483647, '12'),
 (3, 'fdfdd', 'dggdrtrtgrg', 'nis@gmail.com', 2147483647, 'ggrg'),
-(5, 'ycyuyhb', '', 'aman@gmail.com', 0, ''),
-(6, 'ggfg', 'ydtyy', 'sak@gaim.vom', 34566777, 'hgcghhg');
+(5, 'ycyuyhb', '', 'aman@gmail.com', 0, '');
 
 -- --------------------------------------------------------
 
@@ -154,10 +126,7 @@ INSERT INTO `studentcoursemapping` (`MappingId`, `CourseId`, `StudentId`, `Creat
 (8, 20, 1, '2023-09-08 18:55:49'),
 (9, 23, 1, '2023-09-08 18:56:40'),
 (10, 22, 2, '2023-09-08 19:14:38'),
-(11, 18, 2, '2023-09-08 20:00:34'),
-(12, 20, 2, '2023-09-11 14:48:42'),
-(13, 20, 3, '2023-09-11 15:42:16'),
-(14, 20, 5, '2023-09-13 20:26:28');
+(11, 18, 2, '2023-09-08 20:00:34');
 
 -- --------------------------------------------------------
 
@@ -184,42 +153,6 @@ INSERT INTO `teacher` (`id`, `name`, `password`, `email`, `mobile`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `test_api`
---
-
-CREATE TABLE `test_api` (
-  `id` int(10) NOT NULL,
-  `request_type` varchar(255) NOT NULL,
-  `url` varchar(255) NOT NULL,
-  `function` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `test_api`
---
-
-INSERT INTO `test_api` (`id`, `request_type`, `url`, `function`) VALUES
-(1, 'Post', 'localhost/api.php', '{\"method\":\"getstudent\"}'),
-(2, 'Post', 'localhost/api.php', '{\"id\":\"2\"}'),
-(3, 'Post', 'localhost/api.php', '[]'),
-(4, 'Post', 'localhost/api.php', '{\"id\":\"2\"}'),
-(5, 'Post', 'localhost/api.php', '{\"method\":\"2\"}'),
-(6, 'Post', 'localhost/api.php', '{\"method\":\"2\"}'),
-(7, 'Post', 'localhost/api.php', '{\"method\":\"getstudent\",\"studentid\":\"2\"}'),
-(8, 'Get', 'http://localhost/test/common/api.php', '{\"method\":\"getReport\",\"course_id\":\"20\"}'),
-(9, 'Post', 'localhost/api.php', '{\"method\":\"getstu\",\"studentid\":\"2\"}'),
-(10, 'Post', 'localhost/api.php', '{\"method\":\"getstu\",\"studentid\":\"3\"}'),
-(11, 'Post', 'localhost/api.php', '{\"method\":\"getstu\"}'),
-(12, 'Post', 'localhost/api.php', '{\"method\":\"getstu\",\"studentid\":\"2\"}'),
-(13, 'Post', 'http://localhost/test/common/api.php', '{\"method\":\"getstudent\",\"student_id\":\"2\"}'),
-(14, 'Post', 'http://localhost/test/common/api.php', '{\"method\":\"getstudent\",\"student_id\":\"2\"}'),
-(15, 'Post', 'http://localhost/test/common/api.php', '{\"method\":\"getstudent\",\"student_id\":\"2\"}'),
-(16, 'Post', 'http://localhost/test/common/api.php', '{\"method\":\"getStudents\",\"course_id\":\"1\"}'),
-(17, 'Post', 'http://localhost/test/common/api.php', '{\"method\":\"getStudents\",\"course_id\":\"8\"}');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `user`
 --
 
@@ -237,14 +170,48 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `password`, `email`, `mobile`) VALUES
 (2, 'Sajal', 'sajal123', 'sajalgoyal25@yopmail.com', '8077140282'),
+(9, 'Michael Johnson', 'mikepass', 'michael.johnson@example.com', '3456789014'),
+(11, 'William Brown', 'brownpass', 'william.brown@example.com', '5678901234'),
+(12, 'Olivia Martinez', 'olivia456', 'olivia.martinez@example.com', '6789012345'),
+(13, 'James Anderson', 'jamespass', 'james.anderson@example.com', '7890123456'),
+(14, 'Sophia Wilson', 'sophia789', 'sophia.wilson@example.com', '8901234567'),
+(16, 'Ava Thomas', 'avapass', 'ava.thomas@example.com', '1234567890'),
+(17, 'Ethan Hall', 'ethan567', 'ethan.hall@example.com', '2345678901'),
+(19, 'Liam Turner', 'liam789', 'liam.turner@example.com', '4567890123'),
+(20, 'Oliver White', 'oliverpass', 'oliver.white@example.com', '5678901234'),
+(21, 'Mia Lewis', 'miapass', 'mia.lewis@example.com', '6789012345'),
+(22, 'Noah Walker', 'noah123', 'noah.walker@example.com', '7890123456'),
+(23, 'Isabella Green', 'isabellapass', 'isabella.green@example.com', '8901234567'),
+(24, 'Sophia Hill', 'sophia567', 'sophia.hill@example.com', '9012345678'),
+(25, 'Jacob Mitchell', 'jacobpass', 'jacob.mitchell@example.com', '1234567890'),
+(26, 'Liam Turner', 'liampass', 'liam.turner@example.com', '2345678901'),
+(27, 'John Doe', 'password123', 'john.doe@example.com', '1234567890'),
+(28, 'Jane Smith', 'securepass', 'jane.smith@example.com', '2345678901'),
+(29, 'Michael Johnson', 'mikepass', 'michael.johnson@example.com', '3456789012'),
+(30, 'Emily Williams', 'emily123', 'emily.williams@example.com', '4567890123'),
+(31, 'William Brown', 'brownpass', 'william.brown@example.com', '5678901234'),
+(32, 'Olivia Martinez', 'olivia456', 'olivia.martinez@example.com', '6789012345'),
+(33, 'James Anderson', 'jamespass', 'james.anderson@example.com', '7890123456'),
+(34, 'Sophia Wilson', 'sophia789', 'sophia.wilson@example.com', '8901234567'),
+(35, 'Benjamin Taylor', 'benjaminpass', 'benjamin.taylor@example.com', '9012345678'),
+(36, 'Ava Thomas', 'avapass', 'ava.thomas@example.com', '1234567890'),
+(37, 'Ethan Hall', 'ethan567', 'ethan.hall@example.com', '2345678901'),
+(38, 'Emma Clark', 'emma456', 'emma.clark@example.com', '3456789012'),
+(39, 'Liam Turner', 'liam789', 'liam.turner@example.com', '4567890123'),
+(40, 'Oliver White', 'oliverpass', 'oliver.white@example.com', '5678901234'),
+(41, 'Mia Lewis', 'miapass', 'mia.lewis@example.com', '6789012345'),
+(42, 'Noah Walker', 'noah123', 'noah.walker@example.com', '7890123456'),
+(43, 'Isabella Green', 'isabellapass', 'isabella.green@example.com', '8901234567'),
+(44, 'Sophia Hill', 'sophia567', 'sophia.hill@example.com', '9012345678'),
+(45, 'Jacob Mitchell', 'jacobpass', 'jacob.mitchell@example.com', '1234567890'),
+(46, 'Liam Turner', 'liampass', 'liam.turner@example.com', '2345678901'),
 (47, 'saksham', '', 'sakshamgoyal@gmail.com', '3456789014'),
 (48, 'saksham123', '', 'sakshamgoyal@gmail.com', '3456789014'),
 (49, 'saksham', '', 'sakshamgoyal@gmail.com', '9058378584'),
 (50, 'saksham', '', 'sakshamgoyal@gmail.com', '3456789013'),
 (56, 'saksham123', '', 'sakshamgoyal@gmail.com', '9058378584'),
 (57, 'aman', '', 'aman@gmail.com', '3456789013'),
-(60, 'nishant lamiyan', '', 'nis@gmail.com', '3456789013'),
-(61, 'saksham', 'sak12345', 'sakshamgoyal100@gmail.com', '');
+(60, 'nishant lamiyan', '', 'nis@gmail.com', '3456789013');
 
 --
 -- Indexes for dumped tables
@@ -261,12 +228,6 @@ ALTER TABLE `certificate`
 --
 ALTER TABLE `course`
   ADD PRIMARY KEY (`courseId`);
-
---
--- Indexes for table `forgotpassword`
---
-ALTER TABLE `forgotpassword`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `student`
@@ -287,12 +248,6 @@ ALTER TABLE `teacher`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `test_api`
---
-ALTER TABLE `test_api`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -306,7 +261,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `certificate`
 --
 ALTER TABLE `certificate`
-  MODIFY `certificate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `certificate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `course`
@@ -315,22 +270,16 @@ ALTER TABLE `course`
   MODIFY `courseId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT for table `forgotpassword`
---
-ALTER TABLE `forgotpassword`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `studentcoursemapping`
 --
 ALTER TABLE `studentcoursemapping`
-  MODIFY `MappingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `MappingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `teacher`
@@ -339,16 +288,10 @@ ALTER TABLE `teacher`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `test_api`
---
-ALTER TABLE `test_api`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
