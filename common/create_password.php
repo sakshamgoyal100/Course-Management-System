@@ -1,6 +1,6 @@
 <?php
 
-  include ('D:\xampp\htdocs\test\common\config.php');
+  include ('C:\xampp\htdocs\test\common\config.php');
 
   session_start();
 
@@ -53,6 +53,6 @@
 
 <?php
 
-include('D:\xampp\htdocs\test\common\footer.php');
+include('C:\xampp\htdocs\test\common\footer.php');
 
 ?>  

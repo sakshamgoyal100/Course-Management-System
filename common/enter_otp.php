@@ -1,6 +1,6 @@
 <?php
 
-  include ('D:\xampp\htdocs\test\common\config.php');
+  include ('C:\xampp\htdocs\test\common\config.php');
 
   session_start();
 
@@ -120,6 +120,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 <?php
 
-include('D:\xampp\htdocs\test\common\footer.php');
+include('C:\xampp\htdocs\test\common\footer.php');
 
 ?>

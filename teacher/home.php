@@ -1,6 +1,6 @@
 <?php
-    include ('D:\xampp\htdocs\test\common\config.php');
-    include ('D:\xampp\htdocs\test\common\header.php');
+    include ('C:\xampp\htdocs\test\common\config.php');
+    include ('C:\xampp\htdocs\test\common\header.php');
 
     $student = "SELECT COUNT(*) FROM student";
     $course = "SELECT COUNT(*) FROM course";
@@ -65,5 +65,5 @@
 
 
 <?php    
-    include ('D:\xampp\htdocs\test\common\footer.php');
+    include ('C:\xampp\htdocs\test\common\footer.php');
 ?>    

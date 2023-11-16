@@ -1,6 +1,6 @@
 <?php
-     include('D:\xampp\htdocs\test\common\header.php');
-     include 'D:\xampp\htdocs\test\common\config.php';
+     include('C:\xampp\htdocs\test\common\header.php');
+     include 'C:\xampp\htdocs\test\common\config.php';
 
      $certificate_sql = "SELECT * FROM certificate WHERE studentId='".$_SESSION['id']."'";
      $certificate_result = mysqli_query($conn, $certificate_sql) or die("Query Failed.");
@@ -34,7 +34,7 @@
 		echo "<h1>No Record Found.</h1>";
 	}
 
-	include('D:\xampp\htdocs\test\common\footer.php');                
+	include('C:\xampp\htdocs\test\common\footer.php');                
 
 ?>
      

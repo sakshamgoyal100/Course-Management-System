@@ -148,29 +148,29 @@ if($_SESSION['role'] == "STUDENT"){
 ?>
 <?php
 if($_SESSION['role'] == "TEACHER"){
-       // // Define an array of allowed URLs
-       //    $allowedUrls = array(
-       //        '/test/teacher/home.php',
-       //        '/test/course/index.php',
-       //        '/test/student/index.php',
-       //        '/test/common/assign_course.php',
-       //        '/test/common/generate_certificate.php',
-       //        '/test/teacher/report.php',
-       //        '/test/common/api.php',
-       //        '/test/teacher/url.php',
-       //        '/test/teacher/hit_api.php'
-       //    );
+         //Define an array of allowed URLs
+           $allowedUrls = array(
+               '/test/teacher/home.php',
+               '/test/course/index.php',
+               '/test/student/index.php',
+               '/test/common/assign_course.php',
+               '/test/common/generate_certificate.php',
+               '/test/teacher/report.php',
+               '/test/common/api.php',
+               '/test/teacher/url.php',
+               '/test/teacher/hit_api.php'
+           );
 
-       //    // Get the requested URL
-       //    $requestUrl = $_SERVER['REQUEST_URI'];
+           // Get the requested URL
+           $requestUrl = $_SERVER['REQUEST_URI'];
 
-       //    // Check if the requested URL is in the list of allowed URLs
-       //    if (!in_array($requestUrl, $allowedUrls)) {
-       //        // The requested URL is not allowed, deny access
-       //        echo "<h1>You are not authorized to this page.</h1>";
-       //        exit;
-       //    }
-       //    // If the requested URL is allowed, continue processing the request
+           // Check if the requested URL is in the list of allowed URLs
+           if (!in_array($requestUrl, $allowedUrls)) {
+           //     The requested URL is not allowed, deny access
+               echo "<h1>You are not authorized to this page.</h1>";
+               exit;
+           }
+           // If the requested URL is allowed, continue processing the request
 ?>        
         <div class="row">
            <nav class="d-flex justify-content-between bg-dark">

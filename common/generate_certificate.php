@@ -1,7 +1,7 @@
 <?php
     
-    include ('D:\xampp\htdocs\test\common\config.php');
-    include ('D:\xampp\htdocs\test\common\header.php');
+    include ('C:\xampp\htdocs\test\common\config.php');
+    include ('C:\xampp\htdocs\test\common\header.php');
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $student_id  = $_POST['studentId'];
@@ -135,5 +135,5 @@
     </script>
 
 <?php        
-   include ('D:\xampp\htdocs\test\common\footer.php');
+   include ('C:\xampp\htdocs\test\common\footer.php');
 ?>         
