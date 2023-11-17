@@ -7,21 +7,22 @@
         <img height="100px" width="100px" src="image/<?= $_SESSION['name']; ?>.jpg" class="img-responsive">
     </div> -->
    
-        <?php
-         include('nav.php');
-         if(@$_SESSION['showMsg']) {
+    <?php
+     include('C:\xampp\htdocs\test\common\nav.php');
+     if(@$_SESSION['showMsg']) {
 
-            $class = (@$_SESSION['showMsg']['type'] == 'delete') ? 'alert-danger' : 'alert-warning';
+        $class = (@$_SESSION['showMsg']['type'] == 'delete') ? 'alert-danger' : 'alert-warning';
 
-            echo "<div class='mt-3 alert ".$class." alert-dismissible fade show' id='alert' role='alert'>
-                 ".@$_SESSION['showMsg']['message']."
-                 <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'>
-                 <span aria-hidden='true'>&times;</span>
-                 </button> 
-                 </div>";
-            unset($_SESSION['showMsg']);
-        }
-        ?>
+        echo "<div class='mt-3 alert ".$class." alert-dismissible fade show' id='alert' role='alert'>
+             ".@$_SESSION['showMsg']['message']."
+             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'>
+             <span aria-hidden='true'>&times;</span>
+             </button> 
+             </div>";
+
+        unset($_SESSION['showMsg']);
+    }
+    ?>
 
     <div class="mt-5">
     <h2>Course List</h2>

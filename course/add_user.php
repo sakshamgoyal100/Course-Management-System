@@ -1,7 +1,8 @@
 <?php
     include ('C:\xampp\htdocs\test\common\config.php');
     include ('C:\xampp\htdocs\test\common\header.php');
-    include('nav.php');
+    include('C:\xampp\htdocs\test\common\nav.php');
+    
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $cname = $_POST['courseName'];
         $cduration = $_POST['courseDuration'];
@@ -27,7 +28,7 @@
     }
 ?>
     <form class="mx-auto w-25 mt-4 p-4 bg-white rounded border border-primary" action="add_user.php" method="post" enctype="multipart/form-data">
-           <h4 class="text-center">Add User</h4>
+           <h4 class="text-center">Add Course</h4>
            <div class="form-group">
                  <label class="form-label" for="courseName">Course Name</label>
                  <input type="text" name="courseName" class="form-control" id="courseName" >

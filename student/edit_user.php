@@ -1,35 +1,45 @@
 <?php
     include ('C:\xampp\htdocs\test\common\config.php');
     include ('C:\xampp\htdocs\test\common\header.php');
-    include('nav.php');
+    include('C:\xampp\htdocs\test\common\nav.php');
+    
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $id = $_POST['id'];
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $mobile = $_POST['mobile'];
-        $class = $_POST['class'];
+            
+            $id = $_POST['id'];
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $mobile = $_POST['mobile'];
+            $class = $_POST['class'];
 
-        $sql = "UPDATE student SET name='$name', email='$email', mobile='$mobile',class ='$class' WHERE id=$id";
-        if (mysqli_query($conn, $sql)) {
-            $_SESSION['showMsg'] = array('message' => "Data updated successfully.", 'type' => 'update');
-            header('Location: index.php'); // Redirect back to the main page after successful update
-              } 
-        else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-               }
-      }
-        elseif (isset($_GET['id']) || isset($_GET['name']) ) {
+            $sql = "UPDATE student SET name='$name', email='$email', mobile='$mobile',class ='$class' WHERE id=$id";
+
+            if (mysqli_query($conn, $sql)) {
+            
+                $_SESSION['showMsg'] = array('message' => "Data updated successfully.", 'type' => 'update');
+                header('Location: index.php'); // Redirect back to the main page after successful update
+                  
+            }else{
+                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
+          
+
+      }elseif (isset($_GET['id']) || isset($_GET['name']) ) {
+       
             if (isset($_GET['id']) && $_GET['id'] !== "") {
+                   
                    $id = $_GET['id'];
                    $sql = "SELECT * FROM student WHERE id='$id'";
                    $result = mysqli_query($conn, $sql);
                    $user = mysqli_fetch_assoc($result);
-            } else if (isset($_GET['name'])) {
+
+            }elseif (isset($_GET['name'])) {
+                   
                    $name = $_GET['name'];
                    $sql = "SELECT * FROM student WHERE name='$name'";
                    $result = mysqli_query($conn, $sql);
                    $user = mysqli_fetch_assoc($result);
-                }
+
+            }
 
         
 ?>
@@ -55,13 +65,15 @@
                  <label class="form-label mt-4" for="class">Class</label>
                  <input type="text" name="class" class="form-control" id="class" value="<?php echo $user['class']; ?>" required >
            </div>
-                 <button type="submit" class="btn btn-primary w-100 rounded-pill mt-4">Update User</button>
+                 <button type="submit" class="btn btn-primary w-100 rounded-pill mt-4">Update Student</button>
     </form>
-<?php } 
-     elseif (!@($_GET['id'])) {
+
+<?php
+       }elseif (!@($_GET['id'])) {
 ?>
+ 
     <form class="mx-auto w-25 mt-5 p-4 rounded border border-primary" action="edit_user.php">
-            <h4 class="text-center">Update User</h4>
+            <h4 class="text-center">Update Student</h4>
             <div class="form-group">
                  <label class="form-label mt-3" for="id">ID</label>
                  <input type="text" name="id" class="form-control mt-3" id="id">
@@ -71,7 +83,7 @@
                  <label class="form-label mt-2" for="name">NAME</label>
                  <input type="text" name="name" class="form-control mt-3" id="name">
            </div>
-                 <button type="submit" class="btn btn-primary w-100 rounded-pill my-4">Fetch User Detail</button>
+                 <button type="submit" class="btn btn-primary w-100 rounded-pill my-4">Fetch Student Detail</button>
     </form>
 
 <?php        

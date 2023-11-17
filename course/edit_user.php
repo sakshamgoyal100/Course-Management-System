@@ -1,7 +1,8 @@
 <?php
     include ('C:\xampp\htdocs\test\common\config.php');
     include ('C:\xampp\htdocs\test\common\header.php');
-    include('nav.php');
+    include('C:\xampp\htdocs\test\common\nav.php');
+  
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $cid  = $_POST['courseId'];
         $cname = $_POST['courseName'];

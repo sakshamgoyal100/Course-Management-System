@@ -1,7 +1,8 @@
 <?php
     include 'C:\xampp\htdocs\test\common\config.php';
     include 'C:\xampp\htdocs\test\common\header.php';
-    include('nav.php');
+    include('C:\xampp\htdocs\test\common\nav.php');
+    
     if (isset($_GET['courseId']) || isset($_GET['courseName'])) {
         if (isset($_GET['courseId']) && $_GET['courseId'] !== "") {
             $id = $_GET['courseId'];

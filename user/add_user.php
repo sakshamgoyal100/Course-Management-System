@@ -1,7 +1,9 @@
 <?php
     include ('C:\xampp\htdocs\test\common\config.php');
     include ('C:\xampp\htdocs\test\common\header.php');
-    include('nav.php');
+    include('C:\xampp\htdocs\test\common\nav.php');
+    
+    
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $name = $_POST['name'];
         $password = $_POST['password'];
@@ -18,12 +20,14 @@
 
         $sql = "INSERT INTO user (name,password, email, mobile) VALUES ('$name','$password', '$email', '$mobile')";
         if (mysqli_query($conn, $sql)) {
+            
             $_SESSION['showMsg'] = array('message' => "Data added successfully.", 'type' => 'add');
             header('Location: index.php'); // Redirect back to the main page after successful insertion
           
-        } else {
+        }else{
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
+
     }
 ?>
     <form class="mx-auto w-25 mt-4 p-4 bg-white rounded border border-primary" action="add_user.php" method="post" enctype="multipart/form-data">

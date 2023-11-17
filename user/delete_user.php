@@ -1,15 +1,16 @@
 <?php
     include 'C:\xampp\htdocs\test\common\config.php';
     include 'C:\xampp\htdocs\test\common\header.php';
-    include('nav.php');
+    include('C:\xampp\htdocs\test\common\nav.php');
+    
     if (isset($_GET['id']) || isset($_GET['name'])) {
         if (isset($_GET['id']) && $_GET['id'] !== "") {
             $id = $_GET['id'];
-            $sql = "DELETE FROM user WHERE id=$id";
+            $sql = "DELETE FROM user WHERE id=".$id;
             $result = mysqli_query($conn, $sql);
-        }else if (isset($_GET['name'])) {
+        }elseif (isset($_GET['name'])) {
             $name = $_GET['name'];
-            $sql = "DELETE FROM user WHERE name='.$name.'";
+            $sql = "DELETE FROM user WHERE name='$name'";
             $result = mysqli_query($conn, $sql);
             }        
         if ($result) {

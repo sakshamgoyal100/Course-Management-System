@@ -1,24 +1,27 @@
 <?php
     include ('C:\xampp\htdocs\test\common\config.php');
     include ('C:\xampp\htdocs\test\common\header.php');
-    include('nav.php');
+    include('C:\xampp\htdocs\test\common\nav.php');
+    
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $id = $_POST['id'];
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $mobile = $_POST['mobile'];
+      
+            $id = $_POST['id'];
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $mobile = $_POST['mobile'];
 
-        $sql = "UPDATE user SET name='$name', email='$email', mobile='$mobile' WHERE id=$id";
-        if (mysqli_query($conn, $sql)) {
-            $_SESSION['showMsg'] = array('message' => "Data updated successfully.", 'type' => 'update');
-            header('Location: index.php'); // Redirect back to the main page after successful update
-           
-              } 
-        else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-               }
-      }
-        elseif (isset($_GET['id']) || isset($_GET['name']) ) {
+            $sql = "UPDATE user SET name='$name', email='$email', mobile='$mobile' WHERE id=$id";
+            if (mysqli_query($conn, $sql)) {
+                $_SESSION['showMsg'] = array('message' => "Data updated successfully.", 'type' => 'update');
+                header('Location: index.php'); // Redirect back to the main page after successful update
+               
+                  } 
+            else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                   }
+        
+    }elseif (isset($_GET['id']) || isset($_GET['name']) ) {
+
             if (isset($_GET['id']) && $_GET['id'] !== "") {
                    $id = $_GET['id'];
                    $sql = "SELECT * FROM user WHERE id='$id'";

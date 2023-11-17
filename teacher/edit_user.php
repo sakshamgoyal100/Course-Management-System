@@ -1,7 +1,8 @@
 <?php
     include ('C:\xampp\htdocs\test\common\config.php');
     include ('C:\xampp\htdocs\test\common\header.php');
-    include('nav.php');
+    include('C:\xampp\htdocs\test\common\nav.php');
+    
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id = $_POST['id'];
         $name = $_POST['name'];
@@ -9,27 +10,35 @@
         $mobile = $_POST['mobile'];
 
         $sql = "UPDATE teacher SET name='$name', email='$email', mobile='$mobile' WHERE id=$id";
-        if (mysqli_query($conn, $sql)) {
+
+        if(mysqli_query($conn, $sql)) {
+          
             $_SESSION['showMsg'] = array('message' => "Data updated successfully.", 'type' => 'update');
             header('Location: index.php'); // Redirect back to the main page after successful update
         
-              } 
-        else {
+        }else{
+
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-               }
-      }
-        elseif (isset($_GET['id']) || isset($_GET['name']) ) {
+
+        }
+    
+    }elseif (isset($_GET['id']) || isset($_GET['name']) ){
+
             if (isset($_GET['id']) && $_GET['id'] !== "") {
+
                    $id = $_GET['id'];
                    $sql = "SELECT * FROM teacher WHERE id='$id'";
                    $result = mysqli_query($conn, $sql);
                    $user = mysqli_fetch_assoc($result);
-            } else if (isset($_GET['name'])) {
+
+            }elseif(isset($_GET['name'])) {
+                   
                    $name = $_GET['name'];
                    $sql = "SELECT * FROM teacher WHERE name='$name'";
                    $result = mysqli_query($conn, $sql);
                    $user = mysqli_fetch_assoc($result);
-                }
+
+            }
 
         
 ?>
@@ -53,9 +62,13 @@
            </div>
                  <button type="submit" class="btn btn-primary w-100 rounded-pill mt-4">Update Teacher</button>
     </form>
-<?php } 
-     elseif (!@($_GET['id'])) {
-?>
+
+    <?php 
+    
+    }elseif(!@($_GET['id'])){
+    
+    ?>
+
     <form class="mx-auto w-25 mt-5 p-4 rounded border border-primary" action="edit_user.php">
             <h4 class="text-center">Update Teacher</h4>
             <div class="form-group">

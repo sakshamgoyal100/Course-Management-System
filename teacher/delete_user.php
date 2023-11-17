@@ -1,7 +1,8 @@
 <?php
     include 'C:\xampp\htdocs\test\common\config.php';
     include 'C:\xampp\htdocs\test\common\header.php';
-    include('nav.php');
+    include('C:\xampp\htdocs\test\common\nav.php');
+    
     if (isset($_GET['id']) || isset($_GET['name'])) {
         if (isset($_GET['id']) && $_GET['id'] !== "") {
             $id = $_GET['id'];

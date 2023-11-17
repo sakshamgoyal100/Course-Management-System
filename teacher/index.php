@@ -8,7 +8,7 @@
     </div> -->
    
         <?php
-         include('nav.php');
+         include('C:\xampp\htdocs\test\common\nav.php');
          if(@$_SESSION['showMsg']) {
 
             $class = (@$_SESSION['showMsg']['type'] == 'delete') ? 'alert-danger' : 'alert-warning';

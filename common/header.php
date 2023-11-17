@@ -241,7 +241,7 @@ if($_SESSION['role'] == "TEACHER"){
                                         <th>Field</th><th>Information</th>
                                     </tr>
                                     <tr>
-                                        <td>Name:</td><td><?= $_SESSION['name']; ?></td>
+                                        <td>Name:</td><td class="text-capitalize"><?= $_SESSION['name']; ?></td>
                                     </tr>
                                     <tr>
                                         <td>Email:</td><td><?= $_SESSION['email']; ?></td>
