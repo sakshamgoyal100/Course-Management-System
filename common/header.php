@@ -1,5 +1,5 @@
 <?php
-ob_start();
+ob_start();  //Create full output of page then sent to browser
 session_start();
 
 if(!isset($_SESSION['id'])){
@@ -11,9 +11,14 @@ if(!isset($_SESSION['id'])){
 <html>
 <head>
     <title>User Management</title>
+
+    <!-- Bootstrap CSS v5.3.1 -->
     <link rel="stylesheet" type="text/css" href="http://localhost/test/common/bootstrap.css">
-    <!-- <link rel="stylesheet" href="http://localhost/test/common/bootstrap-icons-1.10.5/bootstrap-icons.css"> -->
+    
+    <!-- Bootstrap Icons CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Bootstrap JS v5.3.1 -->
     <script type="text/javascript" src="http://localhost/test/common/jquery.js"></script>
 
 </head>
@@ -29,7 +34,7 @@ if(!isset($_SESSION['id'])){
                 </div>
             <!-- Button trigger modal -->
                 <div>
-                <button type="button" class="btn btn-dark m-2 p-0 h4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-dark m-2 p-0 h4" data-bs-toggle="modal" data-bs-target="#detailsModal">
                 <i class="bi bi-three-dots-vertical text-white"></i>
                 </button>
                 </div>
@@ -222,7 +227,7 @@ if($_SESSION['role'] == "TEACHER"){
       }          
 ?>       
         <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content">
                          <div class="modal-header">
