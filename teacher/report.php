@@ -61,17 +61,17 @@
 
                     if(response['status'] == 'error'){
                         
-                        table_content = '<tr><td><h3>No Record found.</h3></td></tr>';
-                        $('#tableResult').html(table_content);
+                        table_content = '<tr><td><h3>'+response['message']+'</h3></td></tr>';
 
-                    }
-                    else{
-                        console.log(response);
+                    }else{
+
                         $(response['data']).each((key, value) => {
                             table_content += `<tr><td>${value['grade']}</td><td>${value['total']}</td></tr>`;
                         });
-                        $('#tableResult').html(table_content);
                     }
+
+                    $('#tableResult').html(table_content);
+
                 }
             });
         });
