@@ -3,6 +3,7 @@
     include ('C:\xampp\htdocs\test\common\header.php');
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        
         $student_id  = $_POST['StudentId'];
         $course_id  = $_POST['CourseId'];
 
@@ -14,17 +15,16 @@
 
             if(count($mapping_data) == 0){
 
-            	$sql = "INSERT INTO studentcoursemapping (CourseId,StudentId) VALUES ('$course_id','$student_id')";
-            	$result = mysqli_query($conn, $sql);
+                	$sql = "INSERT INTO studentcoursemapping (CourseId,StudentId) VALUES ('$course_id','$student_id')";
+                	$result = mysqli_query($conn, $sql);
 
-            	if ($result) {
+                	if ($result) {
 
-	                $_SESSION['showMsg'] = array('message' => "Course Assigned Successfully.", 'type' => 'assigned');
-	                header('Location: http://localhost/test/student/index.php'); // Redirect back to the main page after successful update
-	            }  
-	            else {
-	                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	               }
+    	                $_SESSION['showMsg'] = array('message' => "Course Assigned Successfully.", 'type' => 'assigned');
+    	                header('Location: http://localhost/test/student/index.php'); // Redirect back to the main page after successful update
+    	            }else{
+    	                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    	               }
 
             }else{
 
@@ -40,7 +40,7 @@
             
         }else{
          	echo "<div class='mt-3 alert alert-danger alert-dismissible fade show' role='alert'>
-              Invalid user id
+              Please Enter correct data.
               <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'>
               <span aria-hidden='true'>&times;</span>
               </button> 
@@ -59,6 +59,7 @@
     if($_SESSION['role'] == 'TEACHER'){
         $course_sql .= ' WHERE teacher_id = '.$_SESSION['id'];
     }
+
 	$course_result = mysqli_query($conn, $course_sql);
     
         

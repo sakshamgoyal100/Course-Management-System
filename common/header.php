@@ -150,8 +150,7 @@ if($_SESSION['role'] == "STUDENT"){
         </div>
 <?php
       }
-?>
-<?php
+
 if($_SESSION['role'] == "TEACHER"){
          //Define an array of allowed URLs
            $allowedUrls = array(
@@ -162,12 +161,12 @@ if($_SESSION['role'] == "TEACHER"){
                '/test/common/generate_certificate.php',
                '/test/teacher/report.php',
                '/test/common/api.php',
-               '/test/teacher/url.php',
+               '/test/teacher/url.php',  
                '/test/teacher/hit_api.php'
            );
 
            // Get the requested URL
-           $requestUrl = $_SERVER['REQUEST_URI'];
+           $requestUrl = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
            // Check if the requested URL is in the list of allowed URLs
            if (!in_array($requestUrl, $allowedUrls)) {

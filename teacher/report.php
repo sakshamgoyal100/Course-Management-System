@@ -44,9 +44,12 @@
                     </tbody>
             </table>
             </div>
-        </div>        
+        </div>
+
     <script type="text/javascript">
+
     $(document).ready(function () {
+        
         $("#coursedropdown").change(function () {
 
             var course_id = $(this).val();

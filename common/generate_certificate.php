@@ -106,7 +106,7 @@
                 var option = '<option selected value="">Select Student Name</option>'
                 
                 $.ajax({
-                    url: "api.php", // Specify the correct URL
+                    url: "api.php", 
                     type: "GET",
                     data: { method: "getStudents", course_id : course_id }, // Pass data to the server
                     success: function (response) {

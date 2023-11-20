@@ -112,8 +112,9 @@ if(@$_GET['sendemail']){
         header('Location: http://localhost/'.$_GET['redirect_url']);
     }
     else{
-        $_SESSION['showMsg'] = array('message' => "Certificate Generated Successfully.", 'type' => 'generated');
-        header('Location: http://localhost/test/common/generate_certificate.php');
+        $_SESSION['showMsg'] = array('message' => "Certificate Generated Successfully but could not be sent to student emailid.", 'type' => 'delete');
+        header('Location: http://localhost/'.$_GET['redirect_url']);
+        
     }
 } else {
     echo $html;

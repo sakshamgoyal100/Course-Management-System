@@ -1,3 +1,8 @@
+<?php
+if ($_SESSION['role']== "USER") {
+?>
+
+
 <div class="row">
            <nav class="d-flex justify-content-between bg-secondary mt-3">
             
@@ -20,4 +25,7 @@
             </ul>
             </nav>
 </div>
-  
+
+<?php
+}
+?>  

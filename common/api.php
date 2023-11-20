@@ -13,7 +13,7 @@ include ('C:\xampp\htdocs\test\common\config.php');
 function getStudents($conn){
 
 
-	$student_sql = "SELECT * FROM student INNER JOIN studentcoursemapping ON student.id = studentcoursemapping.StudentId WHERE studentcoursemapping.courseId = ".$_POST['course_id'];
+	$student_sql = "SELECT * FROM student INNER JOIN studentcoursemapping ON student.id = studentcoursemapping.StudentId WHERE studentcoursemapping.courseId = ".$_GET['course_id'];
 
     $student_result = mysqli_query($conn, $student_sql);
     
