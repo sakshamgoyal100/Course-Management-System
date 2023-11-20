@@ -41,7 +41,7 @@ The project is structured into different sections:
 </ol>
 
 <h2>Author</h2>
-Saksham Goyal
+<strong>Saksham Goyal</strong><br>
 Feel free to contribute to the project by submitting issues or pull requests.
 
 
